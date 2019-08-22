@@ -31,8 +31,7 @@ namespace AdministracionInmobiliaria.Controllers
         [Route("ObtenerAcceso")]
         public async Task<IActionResult> ObtenerAcceso(PeticionLoginViewModel infoUsuario)
         {
-            LoginRequetsViewModel respuesta = new LoginRequetsViewModel();
-            respuesta = await servicio.ObtenerAcceso(infoUsuario);
+            var respuesta = await servicio.ObtenerAcceso(infoUsuario);
             return Ok(respuesta);
         }
     }

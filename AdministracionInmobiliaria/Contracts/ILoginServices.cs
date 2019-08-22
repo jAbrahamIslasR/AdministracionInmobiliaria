@@ -9,6 +9,6 @@ namespace AdministracionInmobiliaria.Contracts
 {
     public interface ILoginServices
     {
-        Task<LoginRequetsViewModel> ObtenerAcceso(PeticionLoginViewModel infoUsuario);
+        Task<object> ObtenerAcceso(PeticionLoginViewModel infoUsuario);
     }
 }

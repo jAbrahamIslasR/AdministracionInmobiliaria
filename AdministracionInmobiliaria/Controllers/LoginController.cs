@@ -25,7 +25,7 @@ namespace AdministracionInmobiliaria.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "Milo", "Cabra" };
-        }
+        } 
 
         [HttpPost]
         [Route("ObtenerAcceso")]

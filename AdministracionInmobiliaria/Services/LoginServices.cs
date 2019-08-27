@@ -17,10 +17,12 @@ namespace AdministracionInmobiliaria.Services
     {
         private AdministracionInmobiliariaContext context;
         private AuxiliarControlMensajesError auxiliarErrores = new AuxiliarControlMensajesError();
+        private IAdminInmobRepositorio repositorio;
 
-        public LoginServices(AdministracionInmobiliariaContext contexto)
+        public LoginServices(AdministracionInmobiliariaContext contexto, IAdminInmobRepositorio repo)
         {
             this.context = contexto;
+            this.repositorio = repo;
         }
 
         public async Task<object> ObtenerAcceso(PeticionLoginViewModel infoUsuario)
@@ -28,15 +30,7 @@ namespace AdministracionInmobiliaria.Services
             var respuesta = new LoginRequetsViewModel();
             var respuestaError = new ServerResponseViewModel();
 
-            respuesta = await context.UsuariosPermisos
-                .Where(u => u.IdUsuarioNavigation.UserName == infoUsuario.Email
-                            && u.IdUsuarioNavigation.Password == infoUsuario.Password)
-                .Select(u => new LoginRequetsViewModel()
-                {
-                    UserName = u.IdUsuarioNavigation.UserName,
-                    Permiso = u.IdPermisoNavigation.Nombre
-                })
-                .FirstOrDefaultAsync();
+            respuesta = await repositorio.ObtenerAcceso(infoUsuario);
 
             //Si no se encuentra información del usuario
             if (respuesta == null)

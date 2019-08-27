@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using AdministracionInmobiliaria.Contracts;
 using AdministracionInmobiliaria.Services;
+using AdministracionInmobiliaria.Repositorios;
 
 namespace AdministracionInmobiliaria
 {
@@ -36,6 +37,7 @@ namespace AdministracionInmobiliaria
 
             //Add services
             services.AddScoped<ILoginServices, LoginServices>();
+            services.AddScoped<IAdminInmobRepositorio, AdminInmobRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

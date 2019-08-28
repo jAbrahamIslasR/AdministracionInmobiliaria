@@ -5,7 +5,7 @@
       {
         "name": "AdministracionInmobiliaria",
         "parameters": {
-          "appBundle": "site.zip",
+          "appBundle": ".",
           "iisPath": "/",
           "iisWebSite": "Default Web Site"
         }

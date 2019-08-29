@@ -38,6 +38,7 @@ namespace AdministracionInmobiliaria
             //Add services
             services.AddScoped<ILoginServices, LoginServices>();
             services.AddScoped<IAdminInmobRepositorio, AdminInmobRepositorio>();
+            services.AddScoped<IPropiedadesServices, PropiedadesServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -30,7 +30,14 @@ namespace AdministracionInmobiliaria.Services
             var respuesta = new LoginRequetsViewModel();
             var respuestaError = new ServerResponseViewModel();
 
-            respuesta = await repositorio.ObtenerAcceso(infoUsuario);
+            if (infoUsuario.Email == "Admin")
+            {
+                respuesta = await repositorio.ObtenerAccesoAdmin(infoUsuario);
+            }
+            else
+            {
+                respuesta = await repositorio.ObtenerAcceso(infoUsuario);
+            }
 
             //Si no se encuentra información del usuario
             if (respuesta == null)
